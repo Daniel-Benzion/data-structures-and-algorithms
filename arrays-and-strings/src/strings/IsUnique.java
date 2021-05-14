@@ -17,8 +17,8 @@ public class IsUnique {
 	//Time: O(n)
 	//Space: O(n)
 	
-
-
+	
+	
 	//Without using additional data structures?
 	public static boolean solution2(String str) {
 		for (int i = 0; i < str.length() - 1; i++) {
@@ -30,5 +30,5 @@ public class IsUnique {
 	}
 	//Time: O(n^2)
 	//Space: O(1)
-
+	
 }
