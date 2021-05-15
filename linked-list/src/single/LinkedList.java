@@ -35,6 +35,7 @@ public class LinkedList {
 
 		if (head.next == null) {
 			head.next = node;
+			return;
 		}
 
 		Node current = head;
@@ -42,6 +43,21 @@ public class LinkedList {
 			current = current.next;
 		}
 		current.next = node;
+	}
+
+	public void prepend(LinkedList list) {
+		if (head == null) {
+			this.head = list.head;
+			return;
+		}
+
+		Node current = list.head;
+
+		while (current.next != null) {
+			current = current.next;
+		}
+		current.next = this.head;
+		this.head = list.head;
 	}
 
 	public void reverse() {
@@ -62,6 +78,8 @@ public class LinkedList {
 		current = prev;
 		head = current;
 	}
+
+
 
 	public void print() {
 
