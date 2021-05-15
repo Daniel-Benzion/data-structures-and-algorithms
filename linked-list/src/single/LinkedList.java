@@ -1,5 +1,7 @@
 package single;
 
+import java.sql.SQLOutput;
+
 public class LinkedList {
 
 	Node head;
@@ -31,14 +33,37 @@ public class LinkedList {
 
 	}
 
+	public void append(LinkedList list) {
+
+		if (head == null) {
+			head = list.head;
+			return;
+		}
+
+		if (head.next == null) {
+			head.next = list.head;
+			return;
+		}
+
+		Node current = this.head;
+		while (current.next != null) {
+			current = current.next;
+		}
+		current.next = list.head;
+	}
+
 	public void append(Node node) {
+		if (head == null) {
+			head = node;
+			return;
+		}
 
 		if (head.next == null) {
 			head.next = node;
 			return;
 		}
 
-		Node current = head;
+		Node current = this.head;
 		while (current.next != null) {
 			current = current.next;
 		}
@@ -58,6 +83,16 @@ public class LinkedList {
 		}
 		current.next = this.head;
 		this.head = list.head;
+	}
+
+	public void prepend(Node node) {
+		if (head == null) {
+			this.head = node;
+			return;
+		}
+
+		node.next = this.head;
+		this.head = node;
 	}
 
 	public void reverse() {
@@ -89,6 +124,7 @@ public class LinkedList {
 			current = current.next;
 		}
 		System.out.print("(" + current.data + ")-->null");
+		System.out.println("");
 	}
 
 	public static void main(String[] args) {
@@ -96,12 +132,39 @@ public class LinkedList {
 		node.next = new Node(2);
 		node.next.next = new Node(3);
 		LinkedList list = new LinkedList(node);
+
+		Node node2 = new Node(-2);
+		node2.next = new Node(-1);
+		node2.next.next = new Node(0);
+		LinkedList list2 = new LinkedList(node2);
+
+		LinkedList list3 = new LinkedList(new Node(4));
+		list3.append(new Node(5));
+		list3.append(new Node(6));
+
 		list.print();
+
 		System.out.println("");
+		list.prepend(list2);
+
+		list.print();
+
+		System.out.println("");
+		list.append(list3);
+
+		list.print();
+
+		list.reverse();
+
+		System.out.println("");
+
+		list.print();
+
+		/*System.out.println("");
 		System.out.println("");
 		System.out.println("Reverse!");
 		System.out.println("");
-		list.reverse();
-		list.print();
+		list.reverse();*/
+		//list.print();
 	}
 }
