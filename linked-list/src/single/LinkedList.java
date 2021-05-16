@@ -175,6 +175,24 @@ public class LinkedList {
 		head = current;
 	}
 
+	public boolean replace(Node node, int index) {
+		if (index < 0) return false;
+		if (index == 0) {
+			node.next = head.next;
+			head = node;
+		}
+
+		Node current = head;
+		for (int i = 0; i < index - 1; i++) {
+			if (current.next == null) return false;
+			current = current.next;
+		}
+		if(current.next == null) return false;
+		node.next = current.next.next;
+		current.next = node;
+		return true;
+	}
+
 
 
 	public void print() {
@@ -204,8 +222,19 @@ public class LinkedList {
 		list3.append(new Node(6));
 
 
+		list.print();
+
+		list.replace(new Node(8), 1);
 
 		list.print();
+
+		System.out.println(list.replace(new Node(8), 3));
+
+		list.print();
+
+
+
+		/*list.print();
 
 		System.out.println("");
 
@@ -231,6 +260,6 @@ public class LinkedList {
 		System.out.println("Reverse!");
 		System.out.println("");
 		list.reverse();
-		list.print();
+		list.print();*/
 	}
 }
