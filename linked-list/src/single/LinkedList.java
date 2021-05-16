@@ -193,6 +193,30 @@ public class LinkedList {
 		return true;
 	}
 
+	public boolean delete(int index) {
+		if (index < 0) return false;
+
+		if (index == 0) {
+			if (head.next == null) return false;
+			head.next = head;
+			return true;
+		}
+
+		Node current = head;
+		for (int i = 0; i < index - 1; i++) {
+			if (current.next == null) return false;
+			current = current.next;
+		}
+		if (current.next == null) return false;
+		if (current.next.next == null) {
+			current.next = null;
+			return true;
+		}
+		current.next = current.next.next;
+		return true;
+
+	}
+
 
 
 	public void print() {
@@ -231,6 +255,11 @@ public class LinkedList {
 		System.out.println(list.replace(new Node(8), 3));
 
 		list.print();
+
+		list.delete(1);
+
+		list.print();
+
 
 
 
