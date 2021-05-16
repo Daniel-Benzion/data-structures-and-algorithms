@@ -95,6 +95,67 @@ public class LinkedList {
 		this.head = node;
 	}
 
+	public void insert(LinkedList list, int index) {
+		if (index < 0) {
+			System.out.println("Index out of bounds");
+			return;
+		}
+		if (index == 0) {
+			prepend(list);
+			return;
+		}
+
+		Node current = head;
+
+		while (current.next != null) {
+			if (index == 0) {
+				Node current2 = list.head;
+				while (current2.next != null) {
+					current2 = current2.next;
+				}
+				current2.next = current.next;
+				current.next = list.head;
+				return;
+			}
+			current = current.next;
+			index--;
+		}
+		if (index == 0) {
+			append(list);
+		} else {
+			System.out.println("Index out of bounds");
+		}
+	}
+
+	public void insert(Node node, int index) {
+		if (index < 0) {
+			System.out.println("Index out of bounds");
+			return;
+		}
+		if (index == 0) {
+			prepend(node);
+			return;
+		}
+
+		Node current = head;
+
+		while (current.next != null) {
+
+			if (index == 0) {
+				node.next = current.next;
+				current.next = node;
+				return;
+			}
+			current = current.next;
+			index--;
+		}
+		if (index == 0) {
+			append(node);
+		} else {
+			System.out.println("Index out of bounds");
+		}
+	}
+
 	public void reverse() {
 
 		if (head.next == null) return;
@@ -142,29 +203,34 @@ public class LinkedList {
 		list3.append(new Node(5));
 		list3.append(new Node(6));
 
+
+
 		list.print();
 
 		System.out.println("");
+
 		list.prepend(list2);
 
 		list.print();
 
 		System.out.println("");
+
 		list.append(list3);
 
 		list.print();
 
-		list.reverse();
-
 		System.out.println("");
+
+
+		list.insert(new Node(888), 1);
 
 		list.print();
 
-		/*System.out.println("");
 		System.out.println("");
+
 		System.out.println("Reverse!");
 		System.out.println("");
-		list.reverse();*/
-		//list.print();
+		list.reverse();
+		list.print();
 	}
 }
