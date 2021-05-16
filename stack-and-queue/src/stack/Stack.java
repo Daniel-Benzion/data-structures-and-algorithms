@@ -56,5 +56,5 @@ public class Stack {
 		this.top = node;
 		return node.data;
 	}
-	
+
 }
