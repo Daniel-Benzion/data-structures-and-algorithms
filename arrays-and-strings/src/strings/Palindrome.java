@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Palindrome {
 
-	public static boolean isPalidromePermutation(String str) {
+	public static boolean isPalindromePermutation(String str) {
 		Map<Character, Integer> map = new HashMap<>();
 
 		for (int i = 0; i < str.length(); i++) {
@@ -28,6 +28,6 @@ public class Palindrome {
 
 	public static void main(String[] args) {
 		String tester = "acto cta";
-		System.out.println(isPalidromePermutation(tester));
+		System.out.println(isPalindromePermutation(tester));
 	}
 }
