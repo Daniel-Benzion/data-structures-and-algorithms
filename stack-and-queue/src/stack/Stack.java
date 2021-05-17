@@ -25,6 +25,11 @@ public class Stack {
 		this.top = top;
 	}
 
+	public boolean isEmpty() {
+		if (this.top == null) return true;
+		return false;
+	}
+
 	public void peek() {
 		if (this.top == null) {
 			System.out.println("Stack is empty");
