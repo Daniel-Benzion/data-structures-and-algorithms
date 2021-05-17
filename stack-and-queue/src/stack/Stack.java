@@ -26,8 +26,7 @@ public class Stack {
 	}
 
 	public boolean isEmpty() {
-		if (this.top == null) return true;
-		return false;
+		return this.top == null;
 	}
 
 	public void peek() {
